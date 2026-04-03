@@ -1,0 +1,12 @@
+{
+	"name": "ls_linkedservice",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://dfadvancedstorage.dfs.core.windows.net/",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEUyOTRCNzZELTY1QTktNDI2OS04RDVDLTk0MjZCOTAxMDA4Ql8wMWE3Y2RhOS0xOGE0LTQ1NWItYjA4Mi1iNzIwYWU1OTcyYzAiDQp9"
+		}
+	}
+}

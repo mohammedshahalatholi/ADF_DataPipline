@@ -1,0 +1,21 @@
+{
+	"name": "load_restdata",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_linkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "api.json",
+				"folderPath": "api",
+				"fileSystem": "source"
+			}
+		},
+		"schema": {}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

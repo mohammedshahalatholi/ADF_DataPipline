@@ -1,0 +1,85 @@
+{
+	"name": "shedule",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute Pipeline",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "cdc pipline",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"schema": {
+							"value": "@pipeline().parameters.schema",
+							"type": "Expression"
+						},
+						"table": {
+							"value": "@pipeline().parameters.table",
+							"type": "Expression"
+						},
+						"blockdate": {
+							"value": "@pipeline().parameters.blockdate",
+							"type": "Expression"
+						}
+					}
+				}
+			},
+			{
+				"name": "alert",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Execute Pipeline",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": {
+						"value": "https://prod-25.northcentralus.logic.azure.com:443/workflows/b736d6fb1f4c4e358e8b2fea8303dd8e/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=5C3xLVXVPHRmT-4-NIMVNAR6bmN9T2ZVdQUD-dQ-Pp0",
+						"type": "Expression"
+					},
+					"body": {
+						"value": "{\n\"pipeline_name\":@{pipeline().Pipeline},\n\"pipeline_id\":@{pipeline().RunId}\n\n}",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"schema": {
+				"type": "string",
+				"defaultValue": "Source"
+			},
+			"table": {
+				"type": "string",
+				"defaultValue": "Orders"
+			},
+			"blockdate": {
+				"type": "string",
+				"defaultValue": "''"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-03-28T19:17:35Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

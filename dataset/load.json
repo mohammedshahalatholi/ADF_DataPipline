@@ -1,0 +1,21 @@
+{
+	"name": "load",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "loaddata",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "monitor",
+				"fileSystem": "source"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

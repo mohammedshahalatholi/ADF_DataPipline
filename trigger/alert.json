@@ -1,0 +1,28 @@
+{
+	"name": "alert",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "shedule",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"schema": "Schema",
+					"table": "Orders"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2026-03-28T19:08:00",
+				"timeZone": "Sri Lanka Standard Time"
+			}
+		}
+	}
+}
