@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adfpracticepro"
+		},
+		"loaddata_accountKey": {
+			"value": ""
+		},
+		"ls_database_password": {
+			"value": ""
+		},
+		"ls_linkedservice_accountKey": {
+			"value": ""
+		},
+		"loaddata_properties_typeProperties_url": {
+			"value": "https://dfadvancedstorage.dfs.core.windows.net/"
+		},
+		"ls_database_properties_typeProperties_server": {
+			"value": "dfadvancedserver.database.windows.net"
+		},
+		"ls_database_properties_typeProperties_database": {
+			"value": "deadvanceddb"
+		},
+		"ls_database_properties_typeProperties_userName": {
+			"value": "dfproadmin"
+		},
+		"ls_linkedservice_properties_typeProperties_url": {
+			"value": "https://dfadvancedstorage.dfs.core.windows.net/"
+		},
+		"ls_restapi_properties_typeProperties_url": {
+			"value": "https://pokeapi.co/api/v2/pokemon"
+		},
+		"alert_properties_shedule_parameters_schema": {
+			"value": "Schema"
+		},
+		"alert_properties_shedule_parameters_table": {
+			"value": "Orders"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
